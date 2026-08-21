@@ -39,7 +39,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
   // Extract pure numbers or valid tt-prefixed IMDb IDs
   const rawId = String(activeMovie.id).trim();
-  const numericOnly = String(activeMovie.id).replace(/[^0-9]/g, '');
+  const numericOnly = String(activeMovie.id).replace(/[^0-9]/g, '').slice(0, 7);
 
   useEffect(() => {
     if (rawId.startsWith('tt')) {
