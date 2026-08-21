@@ -66,7 +66,6 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     { name: 'Server 3 (SmashyStream)', url: `https://embed.smashystream.com/playere.php?tmdb=${activeId}` },
     { name: 'Server 4 (2Embed)', url: `https://www.2embed.cc/embed/${activeId}` },
     { name: 'Server 5 (VidSrc VIP)', url: `https://vidsrc.vip/embed/movie/${activeId}` },
-<<<<<<< HEAD
     { name: 'Server 6 (MultiEmbed)', url: `https://multiembed.mov/directstream.php?video_id=${activeId}` },
     { name: 'Archive Stream', url: `https://archive.org/embed/${activeMovie.id}` }
   ];
@@ -75,13 +74,6 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const currentUrl = rawUrl ? rawUrl.replace('http://', 'https://') : '';
     
   
-=======
-    { name: 'Server 6 (MultiEmbed)', url: `https://multiembed.mov/directstream.php?video_id=${activeId}` }
-  ];
-
-  const currentUrl = servers[server - 1]?.url || servers[0].url;
-
->>>>>>> 227f0a42610d5446621a7a5c6a55701e581139ef
   const content = (
     <div className="space-y-4 max-w-5xl mx-auto p-2 w-full">
       {(onClose || onBack) && (
