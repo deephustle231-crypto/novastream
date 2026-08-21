@@ -60,15 +60,15 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
   const activeId = tmdbId || numericOnly;
 
- const servers = [
-    { name: 'Server 1 (VidSrc)', url: `https://vidsrc.xyz/embed/movie/${activeId}` },
-    { name: 'Server 2 (AutoEmbed)', url: `https://player.autoembed.cc/embed/movie/${activeId}` },
-    { name: 'Server 3 (SmashyStream)', url: `https://embed.smashystream.com/playere.php?tmdb=${activeId}` },
-    { name: 'Server 4 (2Embed)', url: `https://www.2embed.cc/embed/${activeId}` },
-    { name: 'Server 5 (VidSrc VIP)', url: `https://vidsrc.vip/embed/movie/${activeId}` },
-    { name: 'Server 6 (MultiEmbed)', url: `https://multiembed.mov/directstream.php?video_id=${activeId}` },
-    { name: 'Archive Stream', url: `https://archive.org/embed/${activeMovie.id}` }
-  ];
+const servers = [
+  { name: 'Server 1 (SmashyStream)', url: `https://embed.smashystream.com/playtor.php?tmdb=${activeId}` },
+  { name: 'Server 2 (VidSrc VIP)', url: `https://vidsrc.vip/embed/movie/${activeId}` },
+  { name: 'Server 3 (2Embed)', url: `https://www.2embed.cc/embed/${activeId}` },
+  { name: 'Server 4 (VidSrc)', url: `https://vidsrc.xyz/embed/movie/${activeId}` },
+  { name: 'Server 5 (AutoEmbed)', url: `https://player.autoembed.cc/embed/movie/${activeId}` },
+  { name: 'Server 6 (MultiEmbed)', url: `https://multiembed.mov/directstream.php?videoembed=movie&tmdb=${activeId}` },
+  { name: 'Archive Stream', url: `https://archive.org/embed/${activeMovie.id}` },
+];
 
   const rawUrl = servers[server - 1]?.url || servers[0].url;
   const currentUrl = rawUrl ? rawUrl.replace('http://', 'https://') : '';
@@ -99,14 +99,15 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
       )}
 
       <div className="relative aspect-video w-full bg-zinc-950 rounded-xl overflow-hidden border border-zinc-800 shadow-2xl">
-        <iframe
-          key={currentUrl}
-          src={currentUrl}
-          title={activeMovie.title}
-          className="w-full h-full border-0"
-          allowFullScreen
-          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-        />
+       <iframe
+  key={currentUrl}
+  src={currentUrl}
+  title={activeMovie.title}
+  className="w-full h-full border-0"
+  sandbox="allow-scripts allow-same-origin allow-presentation allow-forms"
+  allowFullScreen
+  allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+/>
       </div>
 
       <div className="flex justify-between items-center bg-zinc-900/80 p-4 rounded-xl border border-zinc-800">
