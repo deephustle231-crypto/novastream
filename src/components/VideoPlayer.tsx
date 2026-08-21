@@ -104,7 +104,7 @@ const servers = [
   src={currentUrl}
   title={activeMovie.title}
   className="w-full h-full border-0"
-  sandbox="allow-scripts allow-same-origin allow-presentation allow-forms"
+  
   allowFullScreen
   allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
 />
