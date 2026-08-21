@@ -1,0 +1,148 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-01",
+      "email": "Deephustle231@gmail.com",
+      "displayName": "NovaStream Administrator",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop",
+      "role": "admin",
+      "plan": "premium",
+      "subscriptionStatus": "active",
+      "subscriptionExpiresAt": "2027-08-15T07:53:33.944Z",
+      "createdAt": "2026-08-15T07:53:33.945Z",
+      "updatedAt": "2026-08-15T07:53:33.945Z"
+    },
+    {
+      "id": "usr-demo-02",
+      "email": "viewer@novastream.tv",
+      "displayName": "Cinema Explorer (Free)",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=300&auto=format&fit=crop",
+      "role": "user",
+      "plan": "free",
+      "subscriptionStatus": "inactive",
+      "subscriptionExpiresAt": null,
+      "createdAt": "2026-08-08T07:53:33.945Z",
+      "updatedAt": "2026-08-15T07:53:33.945Z"
+    },
+    {
+      "id": "usr-demo-premium-03",
+      "email": "subscriber@novastream.tv",
+      "displayName": "Premium Customer (No Admin)",
+      "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=300&auto=format&fit=crop",
+      "role": "user",
+      "plan": "premium",
+      "subscriptionStatus": "active",
+      "subscriptionExpiresAt": "2026-09-14T07:53:33.945Z",
+      "createdAt": "2026-08-01T07:53:33.945Z",
+      "updatedAt": "2026-08-15T07:53:33.945Z"
+    },
+    {
+      "id": "usr-demo-expired-04",
+      "email": "expired@novastream.tv",
+      "displayName": "Lapsed Customer (Expired)",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
+      "role": "user",
+      "plan": "premium",
+      "subscriptionStatus": "expired",
+      "subscriptionExpiresAt": "2026-08-08T07:53:33.945Z",
+      "createdAt": "2026-06-16T07:53:33.945Z",
+      "updatedAt": "2026-08-15T07:53:33.945Z"
+    }
+  ],
+  "movies": [
+    {
+      "id": "mov-tears-of-steel",
+      "title": "Tears of Steel",
+      "year": 2012,
+      "description": "Set in a dystopian future Amsterdam, a group of rebel scientists and warriors attempt to stage a crucial historical event in order to prevent a destructive robot takeover.",
+      "poster": "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop",
+      "backdrop": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1600&auto=format&fit=crop",
+      "genres": [
+        "Sci-Fi",
+        "Action",
+        "VFX Showpiece"
+      ],
+      "runtime": 12,
+      "rating": "PG-13",
+      "cast": [
+        "Derek de Lint",
+        "Sergio Hasselbaink",
+        "Rogier Schippers",
+        "Vanja Rukavina"
+      ],
+      "director": "Ian Hubert",
+      "videoUrl": "/api/media/stream/tears_of_steel_480p.mp4",
+      "primaryVerifiedSource": "/api/media/stream/tears_of_steel_480p.mp4",
+      "fallbackVerifiedSources": [],
+      "fallbackSources": [],
+      "subtitleUrl": "/api/subtitles/sample.vtt",
+      "source": "Blender Foundation 4th Open Movie (Wikimedia Commons CC BY 3.0)",
+      "licenceInfo": "Creative Commons Attribution 3.0",
+      "rightsStatus": "VERIFIED",
+      "mediaValidationStatus": "VALID",
+      "playbackStatus": "VERIFIED",
+      "seekStatus": "SUPPORTED",
+      "mimeType": "video/mp4",
+      "availabilityStatus": "active",
+      "internetArchiveId": "Tears-of-Steel",
+      "isFeatured": true,
+      "isPremiumOnly": false,
+      "viewCount": 48920,
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-01-15T10:00:00Z"
+    }
+  ],
+  "series": [],
+  "watchlist": [],
+  "watchProgress": [],
+  "payments": [],
+  "subscriptions": [],
+  "ratings": [],
+  "auditLogs": [
+    {
+      "id": "log-init-01",
+      "actorId": "system",
+      "actorEmail": "system@novastream.internal",
+      "action": "SYSTEM_BOOTSTRAP",
+      "resource": "Database",
+      "result": "SUCCESS",
+      "details": "NovaStream database initialized with verified public domain & Creative Commons catalog.",
+      "timestamp": "2026-08-15T07:53:33.945Z"
+    }
+  ],
+  "validationLogs": [],
+  "playbackErrors": [
+    {
+      "mediaId": "mov-tears-of-steel",
+      "mediaTitle": "Tears of Steel",
+      "videoUrl": "/api/media/stream/tears_of_steel_480p.mp4",
+      "errorName": "HTML5VideoPlaybackError",
+      "errorMessage": "Media format unsupported or stream server unreachable",
+      "playbackTime": 0,
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5.2 Mobile/15E148 Safari/604.1",
+      "id": "pberr-c1a87905-57da-4b36-8b9f-67a077c010c7",
+      "reportedAt": "2026-08-15T07:56:41.846Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-welcome-01",
+      "userId": "usr-admin-01",
+      "title": "Welcome to NovaStream",
+      "message": "Platform initialized. 50+ legally verified titles ready for streaming and administrative management.",
+      "type": "system",
+      "isRead": false,
+      "createdAt": "2026-08-15T07:53:33.945Z"
+    }
+  ],
+  "settings": {
+    "maintenanceMode": false,
+    "allowedSignups": true,
+    "paystackConfigured": true,
+    "paystackPublicKey": "pk_live_52da7bdac4181926fc1c03fc94beef2f8b0de608",
+    "googleSheetsConfigured": true,
+    "googleSheetsSpreadsheetId": "1-AT0gbNtTvsetWz_VbUX1DH14Tqyu2WP4zXSWgP8h1I",
+    "autoValidationEnabled": true,
+    "lastUpdated": "2026-08-15T07:53:33.945Z"
+  }
+}

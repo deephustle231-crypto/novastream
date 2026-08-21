@@ -1,0 +1,21 @@
+{
+  "short_name": "NovaStream",
+  "name": "NovaStream — Cinema Streaming Platform",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=192&auto=format&fit=crop",
+      "type": "image/jpeg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=512&auto=format&fit=crop",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#F4F1EA",
+  "theme_color": "#9E2A2B",
+  "display": "standalone",
+  "orientation": "portrait"
+}

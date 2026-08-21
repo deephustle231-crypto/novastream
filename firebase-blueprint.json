@@ -1,0 +1,222 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and subscription credentials",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email", "maxLength": 254 },
+        "displayName": { "type": "string", "maxLength": 100 },
+        "avatar": { "type": "string", "maxLength": 500 },
+        "role": { "type": "string", "enum": ["user", "admin"] },
+        "plan": { "type": "string", "enum": ["free", "premium"] },
+        "subscriptionStatus": { "type": "string", "enum": ["active", "inactive", "cancelled", "expired"] },
+        "subscriptionExpiresAt": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["email", "role", "plan"]
+    },
+    "Movie": {
+      "title": "Movie",
+      "description": "Movie catalog record with rights and media verification",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "maxLength": 200 },
+        "year": { "type": "number" },
+        "description": { "type": "string", "maxLength": 2000 },
+        "poster": { "type": "string", "maxLength": 1000 },
+        "backdrop": { "type": "string", "maxLength": 1000 },
+        "genres": { "type": "array" },
+        "runtime": { "type": "number" },
+        "rating": { "type": "string", "maxLength": 20 },
+        "cast": { "type": "array" },
+        "director": { "type": "string", "maxLength": 100 },
+        "videoUrl": { "type": "string", "maxLength": 1500 },
+        "subtitleUrl": { "type": "string", "maxLength": 1500 },
+        "source": { "type": "string", "maxLength": 200 },
+        "licenceInfo": { "type": "string", "maxLength": 500 },
+        "rightsStatus": { "type": "string", "enum": ["VERIFIED", "NEEDS_REVIEW", "REJECTED", "UNKNOWN"] },
+        "mediaValidationStatus": { "type": "string", "enum": ["VALID", "INVALID", "UNAVAILABLE", "PENDING", "NEEDS_REVIEW"] },
+        "availabilityStatus": { "type": "string", "enum": ["active", "disabled"] },
+        "internetArchiveId": { "type": "string", "maxLength": 100 },
+        "isFeatured": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "year", "videoUrl", "rightsStatus", "mediaValidationStatus"]
+    },
+    "Series": {
+      "title": "Series",
+      "description": "TV Series show record",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 2000 },
+        "poster": { "type": "string", "maxLength": 1000 },
+        "backdrop": { "type": "string", "maxLength": 1000 },
+        "year": { "type": "number" },
+        "genres": { "type": "array" },
+        "rating": { "type": "string", "maxLength": 20 },
+        "cast": { "type": "array" },
+        "director": { "type": "string", "maxLength": 100 },
+        "source": { "type": "string", "maxLength": 200 },
+        "licenceInfo": { "type": "string", "maxLength": 500 },
+        "rightsStatus": { "type": "string", "enum": ["VERIFIED", "NEEDS_REVIEW", "REJECTED", "UNKNOWN"] },
+        "mediaValidationStatus": { "type": "string", "enum": ["VALID", "INVALID", "UNAVAILABLE", "PENDING", "NEEDS_REVIEW"] },
+        "availabilityStatus": { "type": "string", "enum": ["active", "disabled"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "year", "rightsStatus", "mediaValidationStatus"]
+    },
+    "Episode": {
+      "title": "Episode",
+      "description": "Individual television series episode",
+      "type": "object",
+      "properties": {
+        "seriesId": { "type": "string", "maxLength": 128 },
+        "seasonNumber": { "type": "number" },
+        "episodeNumber": { "type": "number" },
+        "title": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 1500 },
+        "runtime": { "type": "number" },
+        "videoUrl": { "type": "string", "maxLength": 1500 },
+        "subtitleUrl": { "type": "string", "maxLength": 1500 },
+        "thumbnail": { "type": "string", "maxLength": 1000 },
+        "mediaValidationStatus": { "type": "string", "enum": ["VALID", "INVALID", "UNAVAILABLE", "PENDING", "NEEDS_REVIEW"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["seriesId", "seasonNumber", "episodeNumber", "title", "videoUrl"]
+    },
+    "Watchlist": {
+      "title": "Watchlist",
+      "description": "User saved media item for later viewing",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "mediaId": { "type": "string", "maxLength": 128 },
+        "mediaType": { "type": "string", "enum": ["movie", "series"] },
+        "title": { "type": "string", "maxLength": 200 },
+        "poster": { "type": "string", "maxLength": 1000 },
+        "year": { "type": "number" },
+        "rating": { "type": "string", "maxLength": 20 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "mediaId", "mediaType", "title"]
+    },
+    "WatchProgress": {
+      "title": "WatchProgress",
+      "description": "Playback position tracking for resume and continue watching",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "mediaId": { "type": "string", "maxLength": 128 },
+        "mediaType": { "type": "string", "enum": ["movie", "episode"] },
+        "seriesId": { "type": "string", "maxLength": 128 },
+        "episodeId": { "type": "string", "maxLength": 128 },
+        "positionSeconds": { "type": "number" },
+        "durationSeconds": { "type": "number" },
+        "completionPercentage": { "type": "number" },
+        "completed": { "type": "boolean" },
+        "lastWatchedAt": { "type": "string" }
+      },
+      "required": ["userId", "mediaId", "positionSeconds", "durationSeconds"]
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "Financial transaction record verified server-side",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "userEmail": { "type": "string", "format": "email", "maxLength": 254 },
+        "reference": { "type": "string", "maxLength": 128 },
+        "transactionId": { "type": "string", "maxLength": 128 },
+        "amount": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "plan": { "type": "string", "maxLength": 50 },
+        "status": { "type": "string", "enum": ["success", "failed", "pending"] },
+        "paymentDate": { "type": "string" },
+        "channel": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "reference", "amount", "currency", "status"]
+    },
+    "Subscription": {
+      "title": "Subscription",
+      "description": "Active or past subscription status",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "userEmail": { "type": "string", "format": "email", "maxLength": 254 },
+        "plan": { "type": "string", "maxLength": 50 },
+        "status": { "type": "string", "enum": ["active", "cancelled", "expired", "past_due"] },
+        "amount": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "reference": { "type": "string", "maxLength": 128 },
+        "paystackSubscriptionCode": { "type": "string", "maxLength": 128 },
+        "startDate": { "type": "string" },
+        "nextBillingDate": { "type": "string" },
+        "expiresAt": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "plan", "status", "expiresAt"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "System and administrative action audit record",
+      "type": "object",
+      "properties": {
+        "actorId": { "type": "string", "maxLength": 128 },
+        "actorEmail": { "type": "string", "maxLength": 254 },
+        "action": { "type": "string", "maxLength": 100 },
+        "resource": { "type": "string", "maxLength": 100 },
+        "resourceId": { "type": "string", "maxLength": 128 },
+        "result": { "type": "string", "enum": ["SUCCESS", "FAILURE", "WARNING"] },
+        "details": { "type": "string", "maxLength": 2000 },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["actorEmail", "action", "resource", "result", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile records"
+    },
+    "/movies/{movieId}": {
+      "schema": "Movie",
+      "description": "Movie catalog items"
+    },
+    "/series/{seriesId}": {
+      "schema": "Series",
+      "description": "TV Series catalog items"
+    },
+    "/episodes/{episodeId}": {
+      "schema": "Episode",
+      "description": "Series episodes collection"
+    },
+    "/watchlist/{watchlistId}": {
+      "schema": "Watchlist",
+      "description": "User watchlists"
+    },
+    "/watchProgress/{progressId}": {
+      "schema": "WatchProgress",
+      "description": "Playback progress tracking"
+    },
+    "/payments/{paymentId}": {
+      "schema": "Payment",
+      "description": "Paystack payment records"
+    },
+    "/subscriptions/{subId}": {
+      "schema": "Subscription",
+      "description": "User subscriptions"
+    },
+    "/auditLogs/{logId}": {
+      "schema": "AuditLog",
+      "description": "Administrative audit trail"
+    }
+  }
+}

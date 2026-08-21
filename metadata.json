@@ -1,0 +1,8 @@
+{
+  "name": "NovaStream",
+  "description": "A cinematic Netflix-inspired streaming platform featuring the authentic Netflix interface, multi-server stream mirrors, instant playback, Top 10 rankings, watchlist management, and full media catalog.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
+
